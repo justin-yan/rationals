@@ -5,7 +5,7 @@ matrix:
         - cd java
       script:
         - mvn package
-        - bash <(curl -s https://codecov.io/bash)
+        - bash <(curl -s https://codecov.io/bash) -cF java
 notifications:
   email:
     - justin.yan.public@gmail.com
