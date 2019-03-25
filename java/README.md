@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/justin-yan/rationals.svg?branch=master)](https://travis-ci.org/justin-yan/rationals)[![codecov](https://codecov.io/gh/justin-yan/rationals/branch/master/graph/badge.svg)](https://codecov.io/gh/justin-yan/rationals)
+
 rationals-java
 ==============
 
