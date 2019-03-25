@@ -1,8 +1,7 @@
 package com.justinyan.rationals;
 
-import net.jqwik.api.*;
-
 import java.math.BigDecimal;
+import net.jqwik.api.*;
 
 public class RationalPropertiesTest {
 
@@ -25,6 +24,4 @@ public class RationalPropertiesTest {
     Rational sourceRat2 = Rational.fromBigDecimal(sourceBD2);
     return sourceRat1.multiply(sourceRat2).equals(sourceRat2.multiply(sourceRat1));
   }
-
-
 }
