@@ -1,12 +1,12 @@
 package com.justinyan.rationals;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class RationalTest {
 
@@ -88,6 +88,4 @@ public class RationalTest {
   public void serializationOtherTest() {
     assertThrows(UnsupportedOperationException.class, () -> Rational.deserialize("0:blah/blah"));
   }
-
-
 }
