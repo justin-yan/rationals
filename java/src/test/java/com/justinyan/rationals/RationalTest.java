@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigInteger;
 import java.math.RoundingMode;
-import java.util.Arrays;
-import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public class RationalTest {
@@ -24,10 +22,11 @@ public class RationalTest {
     assertEquals(whole, Rational.fromBigInteger(BigInteger.ONE));
     assertEquals(part, Rational.fromFloat(2.1f));
     assertEquals(part, Rational.fromDouble(2.1));
+    assertThrows(NumberFormatException.class, () -> Rational.fromString("blahblah"));
   }
 
   @Test
-  public void fieldPropertiesTest() {
+  public void fieldOperationsTest() {
     Rational a = Rational.fromString("3.2");
     Rational b = Rational.fromString("5.1");
     Rational c = Rational.fromString("16.32");
@@ -69,19 +68,6 @@ public class RationalTest {
     Rational elt = Rational.fromString("1.444");
     assertEquals(elt.toString(), "361 / 250");
     assertEquals(elt.render(2, RoundingMode.DOWN).toString(), "1.44");
-  }
-
-  @Test
-  public void serializationV1Test() {
-    List<Rational> testList =
-        Arrays.asList(
-            Rational.fromInt(1002),
-            Rational.fromInt(1024),
-            Rational.fromInt(1123),
-            Rational.fromInt(144).divide(Rational.fromInt(32508)));
-    for (Rational rat : testList) {
-      assertEquals(rat, Rational.deserialize(rat.serialize()));
-    }
   }
 
   @Test

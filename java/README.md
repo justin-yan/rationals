@@ -31,5 +31,6 @@ All of the following verification techniques are integrated into the build.
 
 - Unit tests handled by junit5.
     - Jacoco for code coverage statistics, with 100% coverage required.
+    - [jqwik](https://jqwik.net/docs/current/user-guide.html#creating-a-property) is used for property based testing.
 - Static analysis handled by Spotbugs, with a clean run required.
 - CI is handled by TravisCI with Codecov.io on all PRs.
