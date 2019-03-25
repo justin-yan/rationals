@@ -32,15 +32,20 @@ public class RationalTest {
     Rational c = Rational.fromString("16.32");
     Rational d = Rational.fromString("8.3");
     Rational e = Rational.fromString("3.20");
+    Rational f = Rational.fromString("1.5");
+    Rational g = Rational.fromString(".75");
+    Rational h = Rational.fromString("1.25");
     assertEquals(c, a.multiply(b));
     assertEquals(b, c.divide(a));
     assertEquals(d, a.add(b));
     assertEquals(a, d.subtract(b));
     assertEquals(a.compareTo(b), -1);
     assertEquals(a, a);
-    assertEquals(a, e);
     assertNotEquals(a, "random");
+    assertEquals(a, e);
     assertNotEquals(a, b);
+    assertNotEquals(f, g);
+    assertNotEquals(g, h);
     assertEquals(a.hashCode(), e.hashCode());
   }
 
