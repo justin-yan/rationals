@@ -2,8 +2,10 @@ package com.justinyan.rationals;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -32,10 +34,14 @@ public class RationalTest {
     Rational b = Rational.fromString("5.1");
     Rational c = Rational.fromString("16.32");
     Rational d = Rational.fromString("8.3");
+    Rational e = Rational.fromString("3.20");
     assertEquals(c, a.multiply(b));
     assertEquals(b, c.divide(a));
     assertEquals(d, a.add(b));
     assertEquals(a, d.subtract(b));
+    assertEquals(a.compareTo(b), -1);
+    assertEquals(a, e);
+    assertEquals(a.hashCode(), e.hashCode());
   }
 
   @Test
@@ -58,6 +64,13 @@ public class RationalTest {
   }
 
   @Test
+  public void renderTest() {
+    Rational elt = Rational.fromString("1.444");
+    assertEquals(elt.toString(), "361 / 250");
+    assertEquals(elt.render(2, RoundingMode.DOWN).toString(), "1.44");
+  }
+
+  @Test
   public void serializationV1Test() {
     List<Rational> testList =
         Arrays.asList(
@@ -69,4 +82,11 @@ public class RationalTest {
       assertEquals(rat, Rational.deserialize(rat.serialize()));
     }
   }
+
+  @Test
+  public void serializationOtherTest() {
+    assertThrows(UnsupportedOperationException.class, () -> Rational.deserialize("0:blah/blah"));
+  }
+
+
 }
