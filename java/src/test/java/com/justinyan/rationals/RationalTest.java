@@ -1,14 +1,12 @@
 package com.justinyan.rationals;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RationalTest {
 
@@ -40,7 +38,10 @@ public class RationalTest {
     assertEquals(d, a.add(b));
     assertEquals(a, d.subtract(b));
     assertEquals(a.compareTo(b), -1);
+    assertEquals(a, a);
     assertEquals(a, e);
+    assertNotEquals(a, "random");
+    assertNotEquals(a, b);
     assertEquals(a.hashCode(), e.hashCode());
   }
 
