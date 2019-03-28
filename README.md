@@ -1,7 +1,7 @@
 rationals
 =========
 
-Rationals is a numeric type designed to give infinite precision arithmetic for the four basic math operations (`+`, `-`, `*`, `/`), which is useful for use cases like accounting or financial math, which frequently struggle with rounding and/or precision loss as they perform division.
+Rationals is a numeric type designed to give infinite precision arithmetic for the four basic math operations (`+`, `-`, `*`, `/`), which is useful for use cases like [accounting or financial math](https://www.justinyan.com/post/algebraforaccounting/), which frequently struggle with rounding and/or precision loss as they perform division.
 
 ## Current Landscape
 
