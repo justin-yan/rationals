@@ -6,6 +6,19 @@ matrix:
       script:
         - mvn package
         - bash <(curl -s https://codecov.io/bash) -cF java
+    - language: elixir
+      elixir:
+        - '1.8.1'
+      before_script:
+        - cd elixir
+      script:
+        - mix format --check-formatted --dry-run
+        - mix dialyzer --halt-exit-status
+        - mix test
+        - bash <(curl -s https://codecov.io/bash) -cF elixir
+      cache:
+        directories:
+          - priv/plts
 notifications:
   email:
     - justin.yan.public@gmail.com
